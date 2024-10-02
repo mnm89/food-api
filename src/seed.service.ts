@@ -1,5 +1,5 @@
 import { Injectable, OnApplicationBootstrap } from '@nestjs/common';
-import { PrismaService } from './prisma.service';
+import { PrismaService } from 'nestjs-prisma';
 
 @Injectable()
 export class SeedService implements OnApplicationBootstrap {

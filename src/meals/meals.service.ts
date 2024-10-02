@@ -8,7 +8,7 @@ import {
   UpdateMealDto,
   UpdateMealResponse,
 } from './dto';
-import { PrismaService } from '../prisma/prisma.service';
+import { PrismaService } from 'nestjs-prisma';
 
 @Injectable()
 export class MealsService {
@@ -27,7 +27,7 @@ export class MealsService {
   }
 
   async findOne(id: number): Promise<FindOneMealResponse> {
-    const meal = await this.prisma.meal.findUnique({
+    const meal = await this.prisma.meal.findUniqueOrThrow({
       where: { id },
       include: {
         foods: { include: { food: { select: { name: true, id: true } } } },

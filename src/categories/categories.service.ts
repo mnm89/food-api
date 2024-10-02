@@ -8,7 +8,7 @@ import {
   UpdateCategoryDto,
   UpdateCategoryResponse,
 } from './dto';
-import { PrismaService } from '../prisma/prisma.service';
+import { PrismaService } from 'nestjs-prisma';
 
 @Injectable()
 export class CategoriesService {
@@ -26,7 +26,7 @@ export class CategoriesService {
   }
 
   findOne(id: number): Promise<FindOneCategoryResponse> {
-    return this.prisma.category.findUnique({ where: { id } });
+    return this.prisma.category.findUniqueOrThrow({ where: { id } });
   }
 
   update(
