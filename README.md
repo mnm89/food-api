@@ -40,10 +40,13 @@ $ npm install
 cp .env.example .env
 
 # database
-$ docker compose up db -d
+$ npm run db
 
 # generate models
 $ npm run generate
+
+# database migrations
+npm run migrations
 
 # development
 $ npm run dev
