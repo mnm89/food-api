@@ -151,26 +151,6 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                     </ul>
                                 </li>
                             </li>
-                            <li class="link">
-                                <a href="modules/PrismaModule.html" data-type="entity-link" >PrismaModule</a>
-                                <li class="chapter inner">
-                                    <div class="simple menu-toggler" data-bs-toggle="collapse" ${ isNormalMode ?
-                                        'data-bs-target="#injectables-links-module-PrismaModule-65695751054c62be9d0b14f5a043e66a5f984c8edb57f4d7654d3483ef44249c5d9616b1043e3de5395f580fa65e8056d6c460dac0bd9fbb2027665d9910b576"' : 'data-bs-target="#xs-injectables-links-module-PrismaModule-65695751054c62be9d0b14f5a043e66a5f984c8edb57f4d7654d3483ef44249c5d9616b1043e3de5395f580fa65e8056d6c460dac0bd9fbb2027665d9910b576"' }>
-                                        <span class="icon ion-md-arrow-round-down"></span>
-                                        <span>Injectables</span>
-                                        <span class="icon ion-ios-arrow-down"></span>
-                                    </div>
-                                    <ul class="links collapse" ${ isNormalMode ? 'id="injectables-links-module-PrismaModule-65695751054c62be9d0b14f5a043e66a5f984c8edb57f4d7654d3483ef44249c5d9616b1043e3de5395f580fa65e8056d6c460dac0bd9fbb2027665d9910b576"' :
-                                        'id="xs-injectables-links-module-PrismaModule-65695751054c62be9d0b14f5a043e66a5f984c8edb57f4d7654d3483ef44249c5d9616b1043e3de5395f580fa65e8056d6c460dac0bd9fbb2027665d9910b576"' }>
-                                        <li class="link">
-                                            <a href="injectables/PrismaService.html" data-type="entity-link" data-context="sub-entity" data-context-id="modules" >PrismaService</a>
-                                        </li>
-                                        <li class="link">
-                                            <a href="injectables/SeedService.html" data-type="entity-link" data-context="sub-entity" data-context-id="modules" >SeedService</a>
-                                        </li>
-                                    </ul>
-                                </li>
-                            </li>
                 </ul>
                 </li>
                     <li class="chapter">
@@ -183,6 +163,9 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                         <ul class="links collapse " ${ isNormalMode ? 'id="classes-links"' : 'id="xs-classes-links"' }>
                             <li class="link">
                                 <a href="classes/Category.html" data-type="entity-link" >Category</a>
+                            </li>
+                            <li class="link">
+                                <a href="classes/CategoryFood.html" data-type="entity-link" >CategoryFood</a>
                             </li>
                             <li class="link">
                                 <a href="classes/CreateCategoryDto.html" data-type="entity-link" >CreateCategoryDto</a>
@@ -258,6 +241,19 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                             </li>
                         </ul>
                     </li>
+                        <li class="chapter">
+                            <div class="simple menu-toggler" data-bs-toggle="collapse" ${ isNormalMode ? 'data-bs-target="#injectables-links"' :
+                                'data-bs-target="#xs-injectables-links"' }>
+                                <span class="icon ion-md-arrow-round-down"></span>
+                                <span>Injectables</span>
+                                <span class="icon ion-ios-arrow-down"></span>
+                            </div>
+                            <ul class="links collapse " ${ isNormalMode ? 'id="injectables-links"' : 'id="xs-injectables-links"' }>
+                                <li class="link">
+                                    <a href="injectables/SeedService.html" data-type="entity-link" >SeedService</a>
+                                </li>
+                            </ul>
+                        </li>
                     <li class="chapter">
                         <div class="simple menu-toggler" data-bs-toggle="collapse" ${ isNormalMode ? 'data-bs-target="#miscellaneous-links"'
                             : 'data-bs-target="#xs-miscellaneous-links"' }>

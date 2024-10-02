@@ -198,7 +198,7 @@
             </tr>
                 <tr>
                     <td class="col-md-4">
-                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                        <i>Type : </i>    <code>number | null</code>
 
                     </td>
                 </tr>
@@ -219,7 +219,7 @@
                         </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in         <code><a href="../classes/Food.html#source" target="_self" >Food:35</a></code>
+                                <div class="io-line">Defined in         <code><a href="../classes/Food.html#source" target="_self" >Food:33</a></code>
 </div>
                         </td>
                     </tr>
@@ -262,7 +262,7 @@
                         </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in         <code><a href="../classes/Food.html#source" target="_self" >Food:27</a></code>
+                                <div class="io-line">Defined in         <code><a href="../classes/Food.html#source" target="_self" >Food:25</a></code>
 </div>
                         </td>
                     </tr>
@@ -305,7 +305,7 @@
                         </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in         <code><a href="../classes/Food.html#source" target="_self" >Food:31</a></code>
+                                <div class="io-line">Defined in         <code><a href="../classes/Food.html#source" target="_self" >Food:29</a></code>
 </div>
                         </td>
                     </tr>
@@ -348,7 +348,7 @@
                         </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in         <code><a href="../classes/Food.html#source" target="_self" >Food:33</a></code>
+                                <div class="io-line">Defined in         <code><a href="../classes/Food.html#source" target="_self" >Food:31</a></code>
 </div>
                         </td>
                     </tr>
@@ -391,7 +391,7 @@
                         </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in         <code><a href="../classes/Food.html#source" target="_self" >Food:29</a></code>
+                                <div class="io-line">Defined in         <code><a href="../classes/Food.html#source" target="_self" >Food:27</a></code>
 </div>
                         </td>
                     </tr>
@@ -411,7 +411,7 @@
 
 
     <div class="tab-pane fade  tab-source-code" id="source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { ApiProperty } from &#x27;@nestjs/swagger&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { ApiProperty, ApiPropertyOptional } from &#x27;@nestjs/swagger&#x27;;
 import { IsNotEmpty, IsString, IsInt } from &#x27;class-validator&#x27;;
 
 export class CreateFoodDto {
@@ -419,9 +419,8 @@ export class CreateFoodDto {
   @IsString()
   @IsNotEmpty()
   name: string;
-  @ApiProperty()
+  @ApiPropertyOptional()
   @IsInt()
-  @IsNotEmpty()
   category_id: number;
 }
 
@@ -430,9 +429,8 @@ export class UpdateFoodDto {
   @IsString()
   @IsNotEmpty()
   name: string;
-  @ApiProperty()
+  @ApiPropertyOptional()
   @IsInt()
-  @IsNotEmpty()
   category_id: number;
 }
 class Food {
@@ -445,7 +443,7 @@ class Food {
   @ApiProperty()
   name: string;
   @ApiProperty()
-  category_id: number;
+  category_id: number | null;
 }
 export class CreateFoodResponse extends Food {}
 export class FindAllFoodsResponse extends Food {}

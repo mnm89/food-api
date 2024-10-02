@@ -142,7 +142,6 @@
                             <li>
                                     <span class="modifier"></span>
                                     <span class="modifier"></span>
-                                    <span class="modifier"></span>
                                 <a href="#category_id" >category_id</a>
                             </li>
                             <li>
@@ -178,7 +177,6 @@
                     <span class="name">
                             <span class="modifier"></span>
                             <span class="modifier"></span>
-                            <span class="modifier"></span>
                         <span ><b>category_id</b></span>
                         <a href="#category_id"><span class="icon ion-ios-link"></span></a>
                     </span>
@@ -195,13 +193,13 @@
                         <b>Decorators : </b>
                         <br />
                         <code>
-                            @ApiProperty()<br />@IsInt()<br />@IsNotEmpty()<br />
+                            @ApiPropertyOptional()<br />@IsInt()<br />
                         </code>
                     </td>
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="23" class="link-to-prism">src/foods/dto/index.ts:23</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="21" class="link-to-prism">src/foods/dto/index.ts:21</a></div>
                         </td>
                     </tr>
 
@@ -239,7 +237,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="19" class="link-to-prism">src/foods/dto/index.ts:19</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="18" class="link-to-prism">src/foods/dto/index.ts:18</a></div>
                         </td>
                     </tr>
 
@@ -258,7 +256,7 @@
 
 
     <div class="tab-pane fade  tab-source-code" id="source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { ApiProperty } from &#x27;@nestjs/swagger&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { ApiProperty, ApiPropertyOptional } from &#x27;@nestjs/swagger&#x27;;
 import { IsNotEmpty, IsString, IsInt } from &#x27;class-validator&#x27;;
 
 export class CreateFoodDto {
@@ -266,9 +264,8 @@ export class CreateFoodDto {
   @IsString()
   @IsNotEmpty()
   name: string;
-  @ApiProperty()
+  @ApiPropertyOptional()
   @IsInt()
-  @IsNotEmpty()
   category_id: number;
 }
 
@@ -277,9 +274,8 @@ export class UpdateFoodDto {
   @IsString()
   @IsNotEmpty()
   name: string;
-  @ApiProperty()
+  @ApiPropertyOptional()
   @IsInt()
-  @IsNotEmpty()
   category_id: number;
 }
 class Food {
@@ -292,7 +288,7 @@ class Food {
   @ApiProperty()
   name: string;
   @ApiProperty()
-  category_id: number;
+  category_id: number | null;
 }
 export class CreateFoodResponse extends Food {}
 export class FindAllFoodsResponse extends Food {}

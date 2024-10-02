@@ -136,6 +136,10 @@
                     <td class="col-md-4">
                         <ul class="index-list">
                             <li>
+                                    <span class="modifier">Async</span>
+                                <a href="#addFoodToMeal" >addFoodToMeal</a>
+                            </li>
+                            <li>
                                 <a href="#create" >create</a>
                             </li>
                             <li>
@@ -148,6 +152,10 @@
                             </li>
                             <li>
                                 <a href="#remove" >remove</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Async</span>
+                                <a href="#removeFoodFromMeal" >removeFoodFromMeal</a>
                             </li>
                             <li>
                                 <a href="#update" >update</a>
@@ -170,12 +178,12 @@
             <tbody>
                 <tr>
                     <td class="col-md-4">
-<code>constructor(prisma: <a href="../injectables/PrismaService.html" target="_self">PrismaService</a>)</code>
+<code>constructor(prisma: PrismaService)</code>
                     </td>
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="14" class="link-to-prism">src/meals/meals.service.ts:14</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="34" class="link-to-prism">src/meals/meals.service.ts:34</a></div>
                             </td>
                         </tr>
 
@@ -196,7 +204,7 @@
                                                         <td>prisma</td>
                                                   
                                                         <td>
-                                                                        <code><a href="../injectables/PrismaService.html" target="_self" >PrismaService</a></code>
+                                                                    <code>PrismaService</code>
                                                         </td>
                                                   
                                                     <td>
@@ -222,6 +230,87 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
+                    <a name="addFoodToMeal"></a>
+                    <span class="name">
+                            <span class="modifier">Async</span>
+                        <span ><b>addFoodToMeal</b></span>
+                        <a href="#addFoodToMeal"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>addFoodToMeal(id: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>, foodId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="23"
+                                    class="link-to-prism">src/meals/meals.service.ts:23</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>id</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>foodId</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>Promise&lt;FindOneMealResponse&gt;</code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
                     <a name="create"></a>
                     <span class="name">
                         <span ><b>create</b></span>
@@ -238,8 +327,8 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="16"
-                                    class="link-to-prism">src/meals/meals.service.ts:16</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="36"
+                                    class="link-to-prism">src/meals/meals.service.ts:36</a></div>
                         </td>
                     </tr>
 
@@ -307,8 +396,8 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="20"
-                                    class="link-to-prism">src/meals/meals.service.ts:20</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="40"
+                                    class="link-to-prism">src/meals/meals.service.ts:40</a></div>
                         </td>
                     </tr>
 
@@ -346,8 +435,8 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="29"
-                                    class="link-to-prism">src/meals/meals.service.ts:29</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="49"
+                                    class="link-to-prism">src/meals/meals.service.ts:49</a></div>
                         </td>
                     </tr>
 
@@ -413,8 +502,8 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="46"
-                                    class="link-to-prism">src/meals/meals.service.ts:46</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="66"
+                                    class="link-to-prism">src/meals/meals.service.ts:66</a></div>
                         </td>
                     </tr>
 
@@ -464,6 +553,87 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
+                    <a name="removeFoodFromMeal"></a>
+                    <span class="name">
+                            <span class="modifier">Async</span>
+                        <span ><b>removeFoodFromMeal</b></span>
+                        <a href="#removeFoodFromMeal"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>removeFoodFromMeal(id: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>, foodId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="15"
+                                    class="link-to-prism">src/meals/meals.service.ts:15</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>id</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>foodId</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>unknown</code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
                     <a name="update"></a>
                     <span class="name">
                         <span ><b>update</b></span>
@@ -480,8 +650,8 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="39"
-                                    class="link-to-prism">src/meals/meals.service.ts:39</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="59"
+                                    class="link-to-prism">src/meals/meals.service.ts:59</a></div>
                         </td>
                     </tr>
 
@@ -555,10 +725,30 @@ import {
   UpdateMealDto,
   UpdateMealResponse,
 } from &#x27;./dto&#x27;;
-import { PrismaService } from &#x27;../prisma/prisma.service&#x27;;
+import { PrismaService } from &#x27;nestjs-prisma&#x27;;
 
 @Injectable()
 export class MealsService {
+  async removeFoodFromMeal(id: number, foodId: number) {
+    await this.prisma.foodsOnMeals.delete({
+      where: {
+        meal_id_food_id: { food_id: foodId, meal_id: id },
+      },
+    });
+    return this.findOne(id);
+  }
+  async addFoodToMeal(
+    id: number,
+    foodId: number,
+  ): Promise&lt;FindOneMealResponse&gt; {
+    await this.prisma.foodsOnMeals.create({
+      data: {
+        food_id: foodId,
+        meal_id: id,
+      },
+    });
+    return this.findOne(id);
+  }
   constructor(private readonly prisma: PrismaService) {}
   create(createMealDto: CreateMealDto): Promise&lt;CreateMealResponse&gt; {
     return this.prisma.meal.create({ data: createMealDto });
@@ -574,7 +764,7 @@ export class MealsService {
   }
 
   async findOne(id: number): Promise&lt;FindOneMealResponse&gt; {
-    const meal &#x3D; await this.prisma.meal.findUnique({
+    const meal &#x3D; await this.prisma.meal.findUniqueOrThrow({
       where: { id },
       include: {
         foods: { include: { food: { select: { name: true, id: true } } } },

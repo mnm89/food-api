@@ -389,10 +389,18 @@ class Category {
   @ApiProperty()
   name: string;
 }
-
+class CategoryFood {
+  @ApiProperty()
+  id: number;
+  @ApiProperty()
+  name: string;
+}
 export class CreateCategoryResponse extends Category {}
 export class FindAllCategoriesResponse extends Category {}
-export class FindOneCategoryResponse extends Category {}
+export class FindOneCategoryResponse extends Category {
+  @ApiProperty({ isArray: true, type: CategoryFood })
+  foods: CategoryFood[];
+}
 export class UpdateCategoryResponse extends Category {}
 export class RemoveCategoryResponse extends Category {}
 </code></pre>

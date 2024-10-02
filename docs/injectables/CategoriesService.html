@@ -168,7 +168,7 @@
             <tbody>
                 <tr>
                     <td class="col-md-4">
-<code>constructor(prisma: <a href="../injectables/PrismaService.html" target="_self">PrismaService</a>)</code>
+<code>constructor(prisma: PrismaService)</code>
                     </td>
                 </tr>
                         <tr>
@@ -194,7 +194,7 @@
                                                         <td>prisma</td>
                                                   
                                                         <td>
-                                                                        <code><a href="../injectables/PrismaService.html" target="_self" >PrismaService</a></code>
+                                                                    <code>PrismaService</code>
                                                         </td>
                                                   
                                                     <td>
@@ -407,8 +407,8 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="42"
-                                    class="link-to-prism">src/categories/categories.service.ts:42</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="45"
+                                    class="link-to-prism">src/categories/categories.service.ts:45</a></div>
                         </td>
                     </tr>
 
@@ -474,8 +474,8 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="32"
-                                    class="link-to-prism">src/categories/categories.service.ts:32</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="35"
+                                    class="link-to-prism">src/categories/categories.service.ts:35</a></div>
                         </td>
                     </tr>
 
@@ -549,7 +549,7 @@ import {
   UpdateCategoryDto,
   UpdateCategoryResponse,
 } from &#x27;./dto&#x27;;
-import { PrismaService } from &#x27;../prisma/prisma.service&#x27;;
+import { PrismaService } from &#x27;nestjs-prisma&#x27;;
 
 @Injectable()
 export class CategoriesService {
@@ -567,7 +567,10 @@ export class CategoriesService {
   }
 
   findOne(id: number): Promise&lt;FindOneCategoryResponse&gt; {
-    return this.prisma.category.findUnique({ where: { id } });
+    return this.prisma.category.findUniqueOrThrow({
+      where: { id },
+      include: { foods: { select: { name: true, id: true } } },
+    });
   }
 
   update(
