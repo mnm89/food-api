@@ -12,6 +12,18 @@ import { PrismaService } from 'nestjs-prisma';
 
 @Injectable()
 export class MealsService {
+  async addFoodToMeal(
+    id: number,
+    foodId: number,
+  ): Promise<FindOneMealResponse> {
+    await this.prisma.foodsOnMeals.create({
+      data: {
+        food_id: foodId,
+        meal_id: id,
+      },
+    });
+    return this.findOne(id);
+  }
   constructor(private readonly prisma: PrismaService) {}
   create(createMealDto: CreateMealDto): Promise<CreateMealResponse> {
     return this.prisma.meal.create({ data: createMealDto });

@@ -6,6 +6,7 @@ import {
   Patch,
   Param,
   Delete,
+  ParseIntPipe,
 } from '@nestjs/common';
 import { MealsService } from './meals.service';
 import {
@@ -56,8 +57,24 @@ export class MealsController {
     operationId: 'updateMeal',
   })
   @ApiOkResponse({ type: UpdateMealResponse })
-  update(@Param('id') id: string, @Body() updateMealDto: UpdateMealDto) {
+  update(
+    @Param('id', ParseIntPipe) id: number,
+    @Body() updateMealDto: UpdateMealDto,
+  ) {
     return this.mealsService.update(+id, updateMealDto);
+  }
+
+  @Post(':id/:food_id')
+  @ApiOperation({
+    operationId: 'addFoodToMeal',
+    description: 'add a food item to a meal',
+  })
+  @ApiOkResponse({ type: FindOneMealResponse })
+  addFood(
+    @Param('id', ParseIntPipe) id: number,
+    @Param('food_id', ParseIntPipe) foodId: number,
+  ) {
+    return this.mealsService.addFoodToMeal(+id, foodId);
   }
 
   @Delete(':id')
