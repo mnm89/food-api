@@ -8,10 +8,30 @@ import {
   UpdateMealDto,
   UpdateMealResponse,
 } from './dto';
-import { PrismaService } from '../prisma/prisma.service';
+import { PrismaService } from 'nestjs-prisma';
 
 @Injectable()
 export class MealsService {
+  async removeFoodFromMeal(id: number, foodId: number) {
+    await this.prisma.foodsOnMeals.delete({
+      where: {
+        meal_id_food_id: { food_id: foodId, meal_id: id },
+      },
+    });
+    return this.findOne(id);
+  }
+  async addFoodToMeal(
+    id: number,
+    foodId: number,
+  ): Promise<FindOneMealResponse> {
+    await this.prisma.foodsOnMeals.create({
+      data: {
+        food_id: foodId,
+        meal_id: id,
+      },
+    });
+    return this.findOne(id);
+  }
   constructor(private readonly prisma: PrismaService) {}
   create(createMealDto: CreateMealDto): Promise<CreateMealResponse> {
     return this.prisma.meal.create({ data: createMealDto });
@@ -27,7 +47,7 @@ export class MealsService {
   }
 
   async findOne(id: number): Promise<FindOneMealResponse> {
-    const meal = await this.prisma.meal.findUnique({
+    const meal = await this.prisma.meal.findUniqueOrThrow({
       where: { id },
       include: {
         foods: { include: { food: { select: { name: true, id: true } } } },

@@ -8,8 +8,7 @@ import {
   UpdateFoodDto,
   UpdateFoodResponse,
 } from './dto';
-
-import { PrismaService } from '../prisma/prisma.service';
+import { PrismaService } from 'nestjs-prisma';
 
 @Injectable()
 export class FoodsService {
@@ -23,7 +22,7 @@ export class FoodsService {
   }
 
   findOne(id: number): Promise<FindOneFoodResponse> {
-    return this.prisma.food.findUnique({ where: { id } });
+    return this.prisma.food.findUniqueOrThrow({ where: { id } });
   }
 
   update(
