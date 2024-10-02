@@ -12,6 +12,9 @@ export class SeedService implements OnApplicationBootstrap {
     await this.createDefaultGrainsItems();
     await this.createDefaultProteinsItems();
     await this.createDefaultDairyItems();
+    await this.createBreakfastMeal();
+    await this.createLunchMeal();
+    await this.createDinnerMeal();
   }
 
   async createDefaultCategories() {
@@ -104,6 +107,111 @@ export class SeedService implements OnApplicationBootstrap {
         update: { ...c, category_id: dairy.id },
         where: {
           name: c.name,
+        },
+      }),
+    );
+    await Promise.all(promises);
+  }
+
+  async createBreakfastMeal() {
+    const foods = await this.prisma.food.findMany({
+      where: { OR: [{ name: 'Apple' }, { name: 'Yogurt' }] },
+    });
+    const meal = await this.prisma.meal.upsert({
+      create: {
+        name: 'Breakfast',
+      },
+      update: {
+        name: 'Breakfast',
+      },
+      where: {
+        name: 'Breakfast',
+      },
+    });
+    const promises = foods.map((f) =>
+      this.prisma.foodsOnMeals.upsert({
+        create: {
+          food_id: f.id,
+          meal_id: meal.id,
+        },
+        update: {
+          food_id: f.id,
+          meal_id: meal.id,
+        },
+        where: {
+          meal_id_food_id: { food_id: f.id, meal_id: meal.id },
+        },
+      }),
+    );
+    await Promise.all(promises);
+  }
+  async createLunchMeal() {
+    const foods = await this.prisma.food.findMany({
+      where: {
+        OR: [
+          { name: 'Wheat Bread' },
+          { name: 'Chicken Breast' },
+          { name: 'Carrot' },
+        ],
+      },
+    });
+    const meal = await this.prisma.meal.upsert({
+      create: {
+        name: 'Lunch',
+      },
+      update: {
+        name: 'Lunch',
+      },
+      where: {
+        name: 'Lunch',
+      },
+    });
+    const promises = foods.map((f) =>
+      this.prisma.foodsOnMeals.upsert({
+        create: {
+          food_id: f.id,
+          meal_id: meal.id,
+        },
+        update: {
+          food_id: f.id,
+          meal_id: meal.id,
+        },
+        where: {
+          meal_id_food_id: { food_id: f.id, meal_id: meal.id },
+        },
+      }),
+    );
+    await Promise.all(promises);
+  }
+  async createDinnerMeal() {
+    const foods = await this.prisma.food.findMany({
+      where: {
+        OR: [{ name: 'Salmon' }, { name: 'Broccoli' }, { name: 'Rice' }],
+      },
+    });
+    const meal = await this.prisma.meal.upsert({
+      create: {
+        name: 'Dinner',
+      },
+      update: {
+        name: 'Dinner',
+      },
+      where: {
+        name: 'Dinner',
+      },
+    });
+    const promises = foods.map((f) =>
+      this.prisma.foodsOnMeals.upsert({
+        create: {
+          food_id: f.id,
+          meal_id: meal.id,
+        },
+        update: {
+          food_id: f.id,
+          meal_id: meal.id,
+        },
+        where: {
+          meal_id_food_id: { food_id: f.id, meal_id: meal.id },
         },
       }),
     );

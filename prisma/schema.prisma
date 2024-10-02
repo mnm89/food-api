@@ -18,8 +18,8 @@ model Category {
   updated_at DateTime @default(now()) @updatedAt
   id         Int      @id @default(autoincrement())
 
-  name String @unique
-  Food Food[]
+  name  String @unique
+  foods Food[]
 
   @@map("categories")
 }
@@ -29,9 +29,35 @@ model Food {
   updated_at DateTime @default(now()) @updatedAt
   id         Int      @id @default(autoincrement())
 
-  name        String   @unique
+  name        String         @unique
   category_id Int
-  category    Category @relation(fields: [category_id], references: [id])
+  category    Category       @relation(fields: [category_id], references: [id])
+  meals       FoodsOnMeals[]
 
   @@map("foods")
+}
+
+model Meal {
+  created_at DateTime @default(now())
+  updated_at DateTime @default(now()) @updatedAt
+  id         Int      @id @default(autoincrement())
+
+  name  String         @unique
+  foods FoodsOnMeals[]
+
+  @@map("meals")
+}
+
+model FoodsOnMeals {
+  created_at DateTime @default(now())
+  updated_at DateTime @default(now()) @updatedAt
+
+  meal    Meal @relation(fields: [meal_id], references: [id])
+  meal_id Int
+
+  food    Food @relation(fields: [food_id], references: [id])
+  food_id Int
+
+  @@id([meal_id, food_id])
+  @@map("foods_on_meals")
 }
