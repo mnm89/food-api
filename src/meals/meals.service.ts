@@ -1,16 +1,23 @@
 import { Injectable } from '@nestjs/common';
-import { CreateMealDto } from './dto/create-meal.dto';
-import { UpdateMealDto } from './dto/update-meal.dto';
+import {
+  CreateMealDto,
+  CreateMealResponse,
+  FindAllMealsResponse,
+  FindOneMealResponse,
+  RemoveMealResponse,
+  UpdateMealDto,
+  UpdateMealResponse,
+} from './dto';
 import { PrismaService } from '../prisma/prisma.service';
 
 @Injectable()
 export class MealsService {
   constructor(private readonly prisma: PrismaService) {}
-  create(createMealDto: CreateMealDto) {
+  create(createMealDto: CreateMealDto): Promise<CreateMealResponse> {
     return this.prisma.meal.create({ data: createMealDto });
   }
 
-  async findAll() {
+  async findAll(): Promise<FindAllMealsResponse[]> {
     const meals = await this.prisma.meal.findMany({
       include: {
         foods: { include: { food: { select: { name: true, id: true } } } },
@@ -19,7 +26,7 @@ export class MealsService {
     return meals.map((m) => ({ ...m, foods: m.foods.map((f) => f.food) }));
   }
 
-  async findOne(id: number) {
+  async findOne(id: number): Promise<FindOneMealResponse> {
     const meal = await this.prisma.meal.findUnique({
       where: { id },
       include: {
@@ -29,11 +36,14 @@ export class MealsService {
     return { ...meal, foods: meal.foods.map((f) => f.food) };
   }
 
-  update(id: number, updateMealDto: UpdateMealDto) {
+  update(
+    id: number,
+    updateMealDto: UpdateMealDto,
+  ): Promise<UpdateMealResponse> {
     return this.prisma.meal.update({ where: { id }, data: updateMealDto });
   }
 
-  remove(id: number) {
+  remove(id: number): Promise<RemoveMealResponse> {
     return this.prisma.meal.delete({ where: { id } });
   }
 }
