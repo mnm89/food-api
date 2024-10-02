@@ -12,6 +12,14 @@ import { PrismaService } from 'nestjs-prisma';
 
 @Injectable()
 export class MealsService {
+  async removeFoodFromMeal(id: number, foodId: number) {
+    await this.prisma.foodsOnMeals.delete({
+      where: {
+        meal_id_food_id: { food_id: foodId, meal_id: id },
+      },
+    });
+    return this.findOne(id);
+  }
   async addFoodToMeal(
     id: number,
     foodId: number,

@@ -76,6 +76,18 @@ export class MealsController {
   ) {
     return this.mealsService.addFoodToMeal(+id, foodId);
   }
+  @Delete(':id/:food_id')
+  @ApiOperation({
+    operationId: 'removeFoodToMeal',
+    description: 'remove a food item from a meal',
+  })
+  @ApiOkResponse({ type: FindOneMealResponse })
+  removeFood(
+    @Param('id', ParseIntPipe) id: number,
+    @Param('food_id', ParseIntPipe) foodId: number,
+  ) {
+    return this.mealsService.removeFoodFromMeal(+id, foodId);
+  }
 
   @Delete(':id')
   @ApiOperation({
