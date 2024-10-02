@@ -46,7 +46,7 @@ $ npm run db
 $ npm run generate
 
 # database migrations
-npm run migrations
+$ npm run migrations
 
 # development
 $ npm run dev
@@ -56,7 +56,6 @@ $ npm run debug
 
 # preview
 $ npm run preview
-
 
 # production
 $ npm run prod
