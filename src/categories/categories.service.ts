@@ -26,7 +26,10 @@ export class CategoriesService {
   }
 
   findOne(id: number): Promise<FindOneCategoryResponse> {
-    return this.prisma.category.findUniqueOrThrow({ where: { id } });
+    return this.prisma.category.findUniqueOrThrow({
+      where: { id },
+      include: { foods: { select: { name: true, id: true } } },
+    });
   }
 
   update(
