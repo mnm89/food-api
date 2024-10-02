@@ -1,4 +1,4 @@
-import { ApiProperty } from '@nestjs/swagger';
+import { ApiProperty, ApiPropertyOptional } from '@nestjs/swagger';
 import { IsNotEmpty, IsString, IsInt } from 'class-validator';
 
 export class CreateFoodDto {
@@ -6,9 +6,8 @@ export class CreateFoodDto {
   @IsString()
   @IsNotEmpty()
   name: string;
-  @ApiProperty()
+  @ApiPropertyOptional()
   @IsInt()
-  @IsNotEmpty()
   category_id: number;
 }
 
@@ -17,9 +16,8 @@ export class UpdateFoodDto {
   @IsString()
   @IsNotEmpty()
   name: string;
-  @ApiProperty()
+  @ApiPropertyOptional()
   @IsInt()
-  @IsNotEmpty()
   category_id: number;
 }
 class Food {
@@ -32,7 +30,7 @@ class Food {
   @ApiProperty()
   name: string;
   @ApiProperty()
-  category_id: number;
+  category_id: number | null;
 }
 export class CreateFoodResponse extends Food {}
 export class FindAllFoodsResponse extends Food {}
